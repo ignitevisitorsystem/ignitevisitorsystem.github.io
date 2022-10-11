@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" name="viewport" 
+        content= "width=device-width, initial-scale=1.0">
+      <style media="screen">
+        /* Style inputs */
+             input[type=text], input[type=email], textarea {
+          width: 100%;
+          padding: 12px 20px;
+          margin: 8px 0;
+          display: inline-block;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          box-sizing: border-box;
+          background-color: aliceblue;
+        }
+        
+        /* Style the submit button */
+     /* Style the submit button */
+        button {
+          width: 100%;
+          background-color: #4CAF50;
+          color: white;
+          padding: 14px 20px;
+          margin: 8px 0;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          font-size: large;
+        }
+        
+         button2 {
+          width: 50%;
+          background-color: #4CAF50;
+          color: white;
+          padding: 14px 20px;
+          margin: 8px 0;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          font-size: large;
+        }
+
+        
+        /* Add a background color to the submit button on mouse-over */
+        input[type=submit]:hover {
+          background-color: #45a049;
+        }
+        table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+      </style>  
+    <title>Aqua Visitor System</title>
+  </head>
+<div id="loading">
+  <body style="font-family: sans-serif;font-size: large;">
+    <img id="logo" src="aqua.png" width="250px"></center><br>
+      <h1 id="header" style="text-align: center;">Aqua Visitor System</h1>
+	<center><a href="https://aquavisitorsystem.github.io/help/Aqua%20Visitor%20Check.htm"  target="_blank">Help</a></center>
+      <button id="schedule" type="button" style="background-color: orangered;">Schedule Visitor</button>
+       <button id="getall" type="button" style="background-color: navy;">View Scheduled Visits</button>
+       <div id="container">
+    <form id="forms">
+      <input type="hidden" id="bitly" name="bitly">  
+      <input type="hidden" id="id" name="id"> 
+     <div id="checkedin"></div>
+      <div id="logins">
+       <label for="login" style="color: black;font-weight: bold;">Aqua Employee Network ID</label>
+     <input type="text" id="login" name="login" placeholder="Please enter your Network Login ID. Example: ckonkol" style="background-color: lightyellow;">
+      </div>
+    <div id="meetingfields">
+      <label for="fname" style="color: black;font-weight: bold;">Guest First Name</label>
+      <input type="text" id="fname" name="fname" placeholder="Enter their first name..">
+      
+       <label for="lname" style="color: black;font-weight: bold;">Guest Last Name</label>
+      <input type="text" id="lname" name="lname" placeholder="Enter their last name..">
+      
+           <label for="cname" style="color: black;font-weight: bold;">Guest Company Name</label>
+      <input type="text" id="cname" name="cname" placeholder="Enter their company name..">
+
+      <label for="email" style="color: black;font-weight: bold;">Guest Email</label>
+      <input type="email" id="email" name="email" placeholder="Enter their email address..">
+      <br>
+        <label for="date" style="color: black;font-weight: bold;">Date & Time Guest is Visiting Aqua</label><br>
+       <input type="datetime-local" id="date" name="date" style="font-family: sans-serif;">
+ <br>
+      <label for="message" style="color: black;font-weight: bold;">Purpose of Visit?</label>
+     <textarea id="message" name="message" placeholder="Enter purpose of visit.." style="height: 50px;font-family: sans-serif;"></textarea>
+       <canvas id="qrcode"></canvas> 
+    <label id="emaillink" for="emaillink" style="color: black;font-weight: bold;"></label><br>
+    <label id="remove" for="remove" style="color: black;font-weight: bold;font-size: small;"></label><br>
+    <label id="removeYes" for="removeYes" style="color: black;font-weight: bold;font-size: 12px;"></label>
+     <label id="removeNo" for="removeNo" style="color: black;font-weight: bold;font-size: 12px;"></label>
+        </div>
+   <button id="submit_msg" type="button" style="background-color: orangered;">Schedule Visitor (All fields required!)</button>
+         <button id="update_db" type="button">Update Visit</button>
+	 <button id="checkin" type="button">Tap Here to Check-In/Out</button>
+        <button id="get_id" type="button" style="background-color: navy;">View Scheduled Visits (Aqua Employee Network ID required!)**</button>
+       <button id="get_msg" type="button" style="background-color: cornflowerblue;">Reset Form</button>
+      <br>
+      <center>
+       <button id="get_id2" type="button" style="display: block;width: fit-content;background-color: gray;">**View Inactive Scheduled Visits</button>
+      </center>
+    </form>
+      
+            </div>
+       
+    <div id="table"></div>
+  </body>
+    </div>
+</html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-firestore.js"></script>
+<script src="aqua.js"></script>
