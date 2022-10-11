@@ -199,9 +199,9 @@
 	  var get_iPad = data["iPad"];
 	   var website = get_id  + '&checkin=Now';	
 	  
-           var cwebsite = "https://aquavisitorsystem.github.io/?key=" + website;
+           var cwebsite = "https://ignitevisitorsystem.github.io/?key=" + website;
          console.log(get_id);
-         db.collection("messages").where("key", "==",get_id)
+         db.collection("members").where("key", "==",get_id)
     .get()
     .then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
@@ -214,14 +214,14 @@
 		   document.getElementById("login").readOnly = true;
             document.getElementById("fname").value = doc.data().firstname;
             document.getElementById("lname").value = doc.data().lastname;
-            document.getElementById("cname").value = doc.data().company;
+            document.getElementById("pname").value = doc.data().pname;
 	    document.getElementById("date").value = doc.data().date;
-            document.getElementById("email").value = doc.data().email;
-            document.getElementById("message").value = doc.data().message;
-            var removewebsiteYes = "https://aquavisitorsystem.github.io/?id=" + doc.data().key + "&Remove=Yes";
-           var removewebsiteNo = "https://aquavisitorsystem.github.io/?id=" + doc.data().key + "&Remove=No";
+            document.getElementById("pemail").value = doc.data().pemail;
+            document.getElementById("phone").value = doc.data().pphone;
+            var removewebsiteYes = "https://ignitevisitorsystem.github.io/?id=" + doc.data().key + "&Remove=Yes";
+           var removewebsiteNo = "https://ignitevisitorsystem.github.io/?id=" + doc.data().key + "&Remove=No";
 	var video = "https://youtu.be/6hxZn-wAfwY";
-	document.getElementById("emaillink").innerHTML = "<a href='mailto:" + doc.data().email + "?subject=Upcoming Meeting at Aqua-Aerobic Systems on " + dates + "&body=" + doc.data().firstname + " " + doc.data().lastname + ",%0D%0A%0D%0AMeeting Date/Time: " + dates + "%0D%0A%0D%0APurpose of Meeting : " + doc.data().message + "%0D%0A%0D%0AA unique QR code can be used to Check-in at the iPad stand in our lobby.%0D%0A%0D%0APlease use the below link to get your QR code.%0D%0A" + document.getElementById("bitly").value + "%0D%0A%0D%0AWatch below video to learn how to use our check-in/check-out system:%0D%0A" + video + "'>Click here to create email to guest...</a>";
+	document.getElementById("emaillink").innerHTML = "<a href='mailto:" + doc.data().email + "?subject=Upcoming Kids Church at Ignite Church" + '' + "&body=" + doc.data().firstname + " " + doc.data().lastname  + "%0D%0A%0D%0AA unique QR code can be used to Check-in at the iPad stand in our lobby.%0D%0A%0D%0APlease use the below link to get your QR code.%0D%0A" + document.getElementById("bitly").value + "%0D%0A%0D%0AWatch below video to learn how to use our check-in/check-out system:%0D%0A" + video + "'>Click here to create email to guest...</a>";
         console.log("Remove:" + doc.data().remove);
           if (doc.data().remove === 'Yes'){
             document.getElementById('qrcode').style.display = 'none';
