@@ -307,8 +307,8 @@
 	   varcp =  doc.data().guardianname;
 	    data3 = {
                login: doc.data().login,
-            firstname: doc.data().fname,
-          lastname: doc.data().lname,
+            firstname: doc.data().firstname,
+          lastname: doc.data().lastname,
 	  grade: doc.data().grade,
           guardianname: doc.data().guardianname,
           date: doc.data().date,
