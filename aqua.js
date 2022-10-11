@@ -47,19 +47,19 @@
       
  var checkindb = function(data){
         var db = firebase.firestore();
-        var key = data["fname"] + data["lname"] + data["date"];
+        var key = data["firstname"] + data["lastname"] + data["date"];
         var SaveDoc = db.collection("checkin").doc(key);  
 	var login = data["login"];
 	    var d = new Date();
              myTime = new Date(d).toLocaleString();
         SaveDoc.set({
               login: data["login"],
-            firstname: data["fname"],
-          lastname: data["lname"],
+            firstname: data["firstname"],
+          lastname: data["lastname"],
 	  grade: data["grade"],
-          guardianname: data["pname"],
-            email: data["pemail"],
-            phone: data["pphone"],
+          guardianname: data["guardianname"],
+            email: data["email"],
+            phone: data["phone"],
             timestamp: Date.now(),
             key: data["key"],
 	  checkin:myTime,
