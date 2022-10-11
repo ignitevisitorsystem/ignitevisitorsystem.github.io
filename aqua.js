@@ -1,11 +1,11 @@
       var firebaseConfig = {
-         apiKey: "AIzaSyC_Wl1RgIWazRk3OhodD5QQTykOcIyZMNs",
-    authDomain: "aquacheckin-e0b0b.firebaseapp.com",
-    projectId: "aquacheckin-e0b0b",
-    storageBucket: "aquacheckin-e0b0b.appspot.com",
-    messagingSenderId: "606092531450",
-    appId: "1:606092531450:web:0cb5aa1499296eae14db43",
-    measurementId: "G-T2LP2MT4DG"
+         apiKey: "AIzaSyDkdpSjBHIrzPNzhuw2_2Em1C0TPDffpiI",
+  authDomain: "ignitecheckin.firebaseapp.com",
+  projectId: "ignitecheckin",
+  storageBucket: "ignitecheckin.appspot.com",
+  messagingSenderId: "128183687677",
+  appId: "1:128183687677:web:af290d58201ce2c6076194",
+  measurementId: "G-631B6Y9QF4"
       };
 
       firebase.initializeApp(firebaseConfig);
