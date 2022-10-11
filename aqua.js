@@ -62,7 +62,7 @@
             phone: data["pphone"],
             timestamp: Date.now(),
             key: data["key"],
-	  checkin:myTime
+	  checkin:myTime,
           remove:'No'
         })
         .then(function(doc) {  
