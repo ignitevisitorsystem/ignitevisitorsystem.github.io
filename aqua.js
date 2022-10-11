@@ -756,9 +756,18 @@ var utcTime = date.toUTCString();
           text = text.replace('Z', '');
 	      text = text.replace('T', '');
           var date = text; 
+	
 	var pphone = document.getElementById("pphone");
         var pemail = document.getElementById("pemail");
         var grade = document.getElementById("grade");
+	      console.log(login);
+	            console.log(fname);
+	            console.log(lname);
+	            console.log(pname);
+	            console.log(date);
+	            console.log(pphone);
+	            console.log(pemail);
+	            console.log(grade);
         var data = {
           "login": login.value,
           "fname": fname.value,
