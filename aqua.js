@@ -45,6 +45,37 @@
     });
 }
       
+ var checkindb = function(data){
+        var db = firebase.firestore();
+        var key = data["fname"] + data["lname"] + data["date"];
+        var SaveDoc = db.collection("checkin").doc(key);  
+	var login = data["login"];
+	    var d = new Date();
+             myTime = new Date(d).toLocaleString();
+        SaveDoc.set({
+              login: data["login"],
+            firstname: data["fname"],
+          lastname: data["lname"],
+	  grade: data["grade"],
+          guardianname: data["pname"],
+            email: data["pemail"],
+            phone: data["pphone"],
+            timestamp: Date.now(),
+            key: data["key"],
+	  checkin:myTime
+          remove:'No'
+        })
+        .then(function(doc) {  
+            //alert("Schedule was created successfully!")
+            console.log("doc added");
+           if (login != 'walkin'){
+           window.location.href = 'https://ignitevisitorsystem.github.io/?id=' + key;
+	   }
+  }).catch(function(error) {
+    console.log("Error getting document:", error);
+  });
+      }
+
       var push_to_firebase = function(data){
         var db = firebase.firestore();
         var key = data["fname"] + data["lname"] + data["date"];
@@ -258,27 +289,37 @@
           var NowTime = new Date(d).toLocaleString();
         var db = firebase.firestore();
          var get_id = data["id"];
-         db.collection("messages").where("key", "==",get_id)
+         db.collection("members").where("key", "==",get_id)
     .get()
     .then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
-           key_checkin = doc.data().checkin;
-           key_checkout = doc.data().checkout;
+           key_checkin ='';
+           key_checkout = '';
            varFName = doc.data().firstname;
            varLName = doc.data().lastname;
-            var dates = new Date(doc.data().date).toLocaleString();
+           var dates = new Date(doc.data().date).toLocaleString();
 	   varwebsite = doc.data().key + '&checkin=Now';
            varDT = dates;
            varAqua = doc.data().login;
-	   varcp =  doc.data().company;
+	   varcp =  doc.data().pname;
+	    var data3 = {
+               login: doc.data().login,
+            firstname: doc.data().fname,
+          lastname: doc.data().lname,
+	  grade: doc.data().grade,
+          guardianname: doc.data().pname,
+          date: doc.data().date,
+            email: doc.data().pemail,
+            phone: doc.data().pphone,
+            timestamp: Date.now(),
+            key: doc.data().key,
+          remove:'No'
+        }
         }); 
-             console.log("key_checkin:" + key_checkin);
-    console.log("key_checkout:" + key_checkout);
-    console.log("keyid" + get_id);
   if ((key_checkin === null || key_checkin === '') && (key_checkout === null || key_checkout === '')){
 	    document.getElementById("checkedin").value = 'No';
 	   console.log("checkedin ID: No");
-           set_checkin(data);	
+           checkindb(data3);	
            document.write('<body style="font-family: sans-serif;color: black;">');
 	  var timeToAdd = 1000 * 60 * 60 * 24 * 7 * 4 * 6;
 var date = new Date();
@@ -303,17 +344,7 @@ var utcTime = date.toUTCString();
   size: 230,
   value: varwebsite
 });
-      //return resolve({fileName: obj.fileName, imgData: qr.toDataURL().split(',')[1]})
-	 // document.getElementById('qrcode').style.display = 'contents';
-         // document.write("You have been successfully checked in!<br>");
-        //  varDT = varDT.replace("T", " "); // document.write("Appointment data: " + varAqua);
-	 // document.write("<hr>");
-         // document.write("Appointment date/time: " +  varDT);
-         //   document.write("<hr>");
-        //    document.write("Someone will come get you very soon!");
-   // document.write("<br><br>While waiting, please put on generated badge from printer!");
-    // document.write("<br><br>Thanks for your patience!");
-	     document.write("</center>");
+    document.write("</center>");
     document.write('</body>');
     console.log("checkin successful");
   }else if ((key_checkin !=null && key_checkin != '') && (key_checkout === null || key_checkout === '')){
