@@ -753,11 +753,8 @@ var utcTime = date.toUTCString();
         var lname = document.getElementById("lname");
         var pname = document.getElementById("pname");
 	const d = new Date();
-       var text = d.toISOString();
-          text = text.replace('Z', '');
-	      text = text.replace('T', '');
+        let text = d.toISOString().slice(0, 19);
           var datess = text; 
-	
 	var pphone = document.getElementById("pphone");
         var pemail = document.getElementById("pemail");
         var grade = document.getElementById("grade");
