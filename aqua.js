@@ -287,6 +287,7 @@
   
        
        var get_checkin_data = function(data){
+	  var data3;
 	  var d = new Date();
           var NowTime = new Date(d).toLocaleString();
         var db = firebase.firestore();
@@ -304,7 +305,7 @@
            varDT = dates;
            varAqua = doc.data().login;
 	   varcp =  doc.data().guardianname;
-	    var data3 = {
+	    data3 = {
                login: doc.data().login,
             firstname: doc.data().fname,
           lastname: doc.data().lname,
@@ -321,6 +322,7 @@
   if ((key_checkin === null || key_checkin === '') && (key_checkout === null || key_checkout === '')){
 	    document.getElementById("checkedin").value = 'No';
 	   console.log("checkedin ID: No");
+	   console.log(data3);
            checkindb(data3);	
            document.write('<body style="font-family: sans-serif;color: black;">');
 	  var timeToAdd = 1000 * 60 * 60 * 24 * 7 * 4 * 6;
