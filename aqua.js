@@ -48,7 +48,7 @@
       var push_to_firebase = function(data){
         var db = firebase.firestore();
         var key = data["fname"] + data["lname"] + data["date"];
-        var SaveDoc = db.collection("kidchurch").doc(key);  
+        var SaveDoc = db.collection("members").doc(key);  
 	var login = data["login"];
         SaveDoc.set({
               login: data["login"],
