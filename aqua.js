@@ -819,7 +819,9 @@ if (login.value != null &&  login.value != '' && fname.value != null &&  fname.v
           var grade = document.getElementById("grade");
         var email = document.getElementById("pemail");
         var phone = document.getElementById("pphone");
-        var dates = new Date(date.value).toLocaleString();
+	var tzoffset = (new Date()).getTimezoneOffset() * 60000; //offset in milliseconds
+       var text = (new Date(Date.now() - tzoffset)).toISOString().slice(0, 19);
+        var dates = text;
         var data = {
              "id": id.value,
             "login": login.value,
@@ -829,7 +831,7 @@ if (login.value != null &&  login.value != '' && fname.value != null &&  fname.v
           "email": email.value,
 	  "phone": phone.value,
           "grade": grade.value,
-          "date": date.value
+          "date": dates
         }
         update(data);
 
