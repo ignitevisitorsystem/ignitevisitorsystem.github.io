@@ -777,7 +777,7 @@ var utcTime = date.toUTCString();
           "pphone": pphone.value,
           "date": datess,
 	 "grade": grade.value,
-          "key": fname.value + lname.value + date.value
+          "key": fname.value + lname.value + datess
         }
         
 // empty string
