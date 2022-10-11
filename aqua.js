@@ -61,16 +61,13 @@
             email: data["email"],
             phone: data["phone"],
             timestamp: Date.now(),
-            key: data["key"],
+            key: key,
 	  checkin:myTime,
           remove:'No'
         })
         .then(function(doc) {  
             //alert("Schedule was created successfully!")
             console.log("doc added");
-           if (login != 'walkin'){
-           window.location.href = 'https://ignitevisitorsystem.github.io/?id=' + key;
-	   }
   }).catch(function(error) {
     console.log("Error getting document:", error);
   });
@@ -292,6 +289,8 @@
           var NowTime = new Date(d).toLocaleString();
         var db = firebase.firestore();
          var get_id = data["id"];
+	var tzoffset = (new Date()).getTimezoneOffset() * 60000; //offset in milliseconds
+       var text = (new Date(Date.now() - tzoffset)).toISOString().slice(0, 19);
          db.collection("members").where("key", "==",get_id)
     .get()
     .then((querySnapshot) => {
@@ -300,7 +299,7 @@
            key_checkout = '';
            varFName = doc.data().firstname;
            varLName = doc.data().lastname;
-           var dates = new Date(doc.data().date).toLocaleString();
+           var dates = text.toLocaleString();
 	   varwebsite = doc.data().key + '&checkin=Now';
            varDT = dates;
            varAqua = doc.data().login;
@@ -311,7 +310,7 @@
           lastname: doc.data().lastname,
 	  grade: doc.data().grade,
           guardianname: doc.data().guardianname,
-          date: doc.data().date,
+          date: text,
             email: doc.data().email,
             phone: doc.data().phone,
             timestamp: Date.now(),
