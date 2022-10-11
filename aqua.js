@@ -760,14 +760,14 @@ var utcTime = date.toUTCString();
 	var pphone = document.getElementById("pphone");
         var pemail = document.getElementById("pemail");
         var grade = document.getElementById("grade");
-	      console.log(login);
-	            console.log(fname);
-	            console.log(lname);
-	            console.log(pname);
-	            console.log(date);
-	            console.log(pphone);
-	            console.log(pemail);
-	            console.log(grade);
+	      console.log(login.value);
+	            console.log(fname.value);
+	            console.log(lname.value);
+	            console.log(pname.value);
+	            console.log(date.value);
+	            console.log(pphone.value);
+	            console.log(pemail.value);
+	            console.log(grade.value);
         var data = {
           "login": login.value,
           "fname": fname.value,
