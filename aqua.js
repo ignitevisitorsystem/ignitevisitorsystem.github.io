@@ -303,7 +303,7 @@
 	   varwebsite = doc.data().key + '&checkin=Now';
            varDT = dates;
            varAqua = doc.data().login;
-	   varcp =  doc.data().pname;
+	   varcp =  doc.data().guardianname;
 	    var data3 = {
                login: doc.data().login,
             firstname: doc.data().fname,
