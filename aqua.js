@@ -214,10 +214,10 @@
 		   document.getElementById("login").readOnly = true;
             document.getElementById("fname").value = doc.data().firstname;
             document.getElementById("lname").value = doc.data().lastname;
-            document.getElementById("pname").value = doc.data().pname;
-	    document.getElementById("date").value = doc.data().date;
-            document.getElementById("pemail").value = doc.data().pemail;
-            document.getElementById("phone").value = doc.data().pphone;
+            document.getElementById("pname").value = doc.data().guardianname;
+	    //document.getElementById("date").value = doc.data().date;
+            document.getElementById("pemail").value = doc.data().email;
+            document.getElementById("phone").value = doc.data().phone;
             var removewebsiteYes = "https://ignitevisitorsystem.github.io/?id=" + doc.data().key + "&Remove=Yes";
            var removewebsiteNo = "https://ignitevisitorsystem.github.io/?id=" + doc.data().key + "&Remove=No";
 	var video = "https://youtu.be/6hxZn-wAfwY";
