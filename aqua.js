@@ -1032,7 +1032,7 @@ if (id != null && id != '') {
 	 document.getElementById('logo').style.display = 'none';
   console.log('string is NOT empty');
   var website = id + '&checkin=Now';	
-	var emailwebsite = https://ignitevisitorsystem.github.io/?key=" + website;
+	var emailwebsite = "https://ignitevisitorsystem.github.io/?key=" + website;
 	var data2 = {
           "web": emailwebsite
         }
