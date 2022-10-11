@@ -1017,7 +1017,7 @@ if (id != null && id != '') {
 	 document.getElementById('logo').style.display = 'none';
   console.log('string is NOT empty');
   var website = g_iPadid + '&checkin=Now';	
- var cwebsite = "https://aquameeting.github.io/?key=" + website;
+ var cwebsite = "https://ignitevisitorsystem.github.io/?key=" + website;
 	var emailwebsite = website; //"https://aquameeting.github.io/?key=" + website;
 	var data2 = {
           "web": emailwebsite
