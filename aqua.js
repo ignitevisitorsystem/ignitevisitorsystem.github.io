@@ -309,10 +309,10 @@
             firstname: doc.data().fname,
           lastname: doc.data().lname,
 	  grade: doc.data().grade,
-          guardianname: doc.data().pname,
+          guardianname: doc.data().guardianname,
           date: doc.data().date,
-            email: doc.data().pemail,
-            phone: doc.data().pphone,
+            email: doc.data().email,
+            phone: doc.data().phone,
             timestamp: Date.now(),
             key: doc.data().key,
           remove:'No'
@@ -334,7 +334,7 @@ var utcTime = date.toUTCString();
 	  document.write('<img id="logo" src="aqua.jpg" width="500px">');
 	    document.write("<p style='font-size:47px;'>Guest: <b>" + varFName + " " + varLName + "</b></p>");
 	  document.write('<canvas id="qrcodes"></canvas>');
-	  document.write("<p style='font-size:25px;color: black;'>Company: " + varcp + "</p>");
+	  document.write("<p style='font-size:25px;color: black;'>Parent/Guardian: " + varcp + "</p>");
 	  // document.write("<p style='font-size:16px;color: black;'><br><br><br>printed: " + NowTime + "</p></center>");
    var qrcode = new QRious({
   element: document.getElementById("qrcodes"),
