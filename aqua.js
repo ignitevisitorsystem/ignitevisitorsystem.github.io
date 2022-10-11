@@ -755,7 +755,7 @@ var utcTime = date.toUTCString();
        var text = d.toISOString();
           text = text.replace('Z', '');
 	      text = text.replace('T', '');
-          var date = text; 
+          var datess = text; 
 	
 	var pphone = document.getElementById("pphone");
         var pemail = document.getElementById("pemail");
@@ -764,7 +764,7 @@ var utcTime = date.toUTCString();
 	            console.log(fname.value);
 	            console.log(lname.value);
 	            console.log(pname.value);
-	            console.log(date.value);
+	            console.log(datess);
 	            console.log(pphone.value);
 	            console.log(pemail.value);
 	            console.log(grade.value);
@@ -775,7 +775,7 @@ var utcTime = date.toUTCString();
                "pname": pname.value,
           "pemail": pemail.value,
           "pphone": pphone.value,
-          "date": date.value,
+          "date": datess,
 	 "grade": grade.value,
           "key": fname.value + lname.value + date.value
         }
