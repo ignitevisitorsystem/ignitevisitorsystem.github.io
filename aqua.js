@@ -48,27 +48,26 @@
       var push_to_firebase = function(data){
         var db = firebase.firestore();
         var key = data["fname"] + data["lname"] + data["date"];
-        var SaveDoc = db.collection("messages").doc(key);  
+        var SaveDoc = db.collection("kidchurch").doc(key);  
 	var login = data["login"];
         SaveDoc.set({
               login: data["login"],
             firstname: data["fname"],
           lastname: data["lname"],
-          company: data["cname"],
+	  grade: data["grade"],
+          guardianname: data["pname"],
           date: data["date"],
-            email: data["email"],
-            message: data["msg"],
+            email: data["pemail"],
+            phone: data["pphone"],
             timestamp: Date.now(),
             key: data["key"],
-          checkin: '',
-          checkout: '',
           remove:'No'
         })
         .then(function(doc) {  
             //alert("Schedule was created successfully!")
             console.log("doc added");
            if (login != 'walkin'){
-           window.location.href = 'https://aquavisitorsystem.github.io/?id=' + key;
+           window.location.href = 'https://ignitevisitorsystem.github.io/?id=' + key;
 	   }
   }).catch(function(error) {
     console.log("Error getting document:", error);
@@ -720,23 +719,29 @@ var utcTime = date.toUTCString();
          var login = document.getElementById("login");
         var fname = document.getElementById("fname");
         var lname = document.getElementById("lname");
-        var cname = document.getElementById("cname");
-          var date = document.getElementById("date");
-        var email = document.getElementById("email");
-        var msg = document.getElementById("message");
+        var pname = document.getElementById("pname");
+	const d = new Date();
+       let text = d.toISOString();
+          text = text.replace('Z', '');
+	      text = text.replace('T', '');
+          var date = text //document.getElementById("date");
+	var pphone = document.getElementById("pphone");
+        var pemail = document.getElementById("pemail");
+        var grade = document.getElementById("grade");
         var data = {
           "login": login.value,
           "fname": fname.value,
                "lname": lname.value,
-               "cname": cname.value,
-          "email": email.value,
-          "msg": msg.value,
+               "pname": pname.value,
+          "pemail": pemail.value,
+          "pphone": pphone.value,
           "date": date.value,
+	 "grade": grade.value,
           "key": fname.value + lname.value + date.value
         }
         
 // empty string
-if (login.value != null &&  login.value != '' && fname.value != null &&  fname.value != '' && lname.value != null &&  lname.value != '' && cname.value != null &&  cname.value != '' && email.value != null &&  email.value != ''  && msg.value != null &&  msg.value != ''   && date.value != null &&  date.value != '') {
+if (login.value != null &&  login.value != '' && fname.value != null &&  fname.value != '' && lname.value != null &&  lname.value != '' && pname.value != null &&  pname.value != '' && pemail.value != null &&  pemail.value != ''  && pphone.value != null &&  pphone.value != ''   && grade.value != null &&  grade.value != '') {
      push_to_firebase(data);
 } else {
     alert("All fields required!")
