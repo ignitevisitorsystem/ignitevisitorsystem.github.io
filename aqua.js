@@ -471,7 +471,7 @@ var utcTime = date.toUTCString();
       var header = "<style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;}</style></head>";
       var lines = "";
             let today = new Date().toISOString().slice(0, 10);
-         db.collection("messages").where("login", "==",get_login).where("remove", "==","No").orderBy("date","desc")
+         db.collection("members").where("login", "==",get_login).where("remove", "==","No").orderBy("date","desc")
     .get()
     .then((querySnapshot) => {
           var cnt = querySnapshot.size;
@@ -480,14 +480,14 @@ var utcTime = date.toUTCString();
 		 var nodata = "<br>No data found<br>";
 	         document.write(nodata);
 	}else{
-		document.write("<table>  <tr>    <th>Aqua Employee</th>    <th>First Name</th>    <th>Last Name</th>    <th>Company</th>     <th>Date/Time</th>      <th>Email</th>       <th>Purpose of Visit</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");
+		document.write("<table>  <tr>    <th>Ignite Admin</th>    <th>First Name</th>    <th>Last Name</th>    <th>Guardian</th>     <th>Date/Time</th>      <th>Email</th>       <th>Phone</th><th>Grade</th><th>Remove</th><th>Edit</th>  </tr>");
    
 	}
         querySnapshot.forEach((doc) => {
             // doc.data() is never undefined for query doc snapshots
             console.log(doc.id, " => ", doc.data());
 	   var dates = new Date(doc.data().date).toLocaleString();
-          document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td>' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
+          document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().guardianname + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().phone + '</td><td>' + doc.data().grade + '</td><td>' + doc.data().remove + '</td><td><a href="https://aquavisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
         });
                   document.write("</table>");
        document.head.innerHTML = header;
