@@ -108,13 +108,14 @@
       var update = function(data){
         var db = firebase.firestore();
           var key = data["id"];
-        db.collection("messages").doc(key).update({
+        db.collection("members").doc(key).update({
           firstname: data["fname"],
           lastname: data["lname"],
-          company: data["cname"],
+          guardianname: data["name"],
           date: data["date"],
             email: data["email"],
-            message: data["msg"],
+            phone: data["phone"],
+	   grade: data["grade"],
             timestamp: Date.now()
 }) .then(function(doc) {
     console.log("doc updated");
@@ -816,19 +817,20 @@ if (login.value != null &&  login.value != '' && fname.value != null &&  fname.v
            var login = document.getElementById("login");
         var fname = document.getElementById("fname");
         var lname = document.getElementById("lname");
-        var cname = document.getElementById("cname");
-          var date = document.getElementById("date");
-        var email = document.getElementById("email");
-        var msg = document.getElementById("message");
+        var name = document.getElementById("pname");
+          var grade = document.getElementById("grade");
+        var email = document.getElementById("pemail");
+        var phone = document.getElementById("pphone");
         var dates = new Date(date.value).toLocaleString();
         var data = {
              "id": id.value,
             "login": login.value,
           "fname": fname.value,
                "lname": lname.value,
-               "cname": cname.value,
+               "name": name.value,
           "email": email.value,
-          "msg": msg.value,
+	  "phone": phone.value,
+          "grade": grade.value,
           "date": date.value
         }
         update(data);
