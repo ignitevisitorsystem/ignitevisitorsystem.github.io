@@ -589,14 +589,14 @@ var utcTime = date.toUTCString();
 		 var nodata = "<br>No data found<br>";
 	  document.write(nodata);
 	}else{
-			  document.write("<table>  <tr>   <th>First Name</th>    <th>Last Name</th>    <th>Parent/Guardian</th>     <th>Grade</th>      <th>Email</th><th>Phone</th>  </tr>");
+			  document.write("<table>  <tr>   <th>First</th>    <th>Last</th>    <th>Parent/Guardian</th>     <th>Grade</th>      <th>Email</th><th>Phone</th>  </tr>");
    
 	}
          querySnapshot.forEach((doc) => {
 		var nodata = "";
             // doc.data() is never undefined for query doc snapshots
            var dates = new Date(doc.data().date).toLocaleString();
-          document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().guardianname + '</td><td>' + doc.data().grade + '</td><td>' + doc.data().email + '</td><td>' + doc.data().phone + '</td><td><a href="https://ignitevisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
+          document.write('<tr><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().guardianname + '</td><td>' + doc.data().grade + '</td><td>' + doc.data().email + '</td><td>' + doc.data().phone + '</td><td><a href="https://ignitevisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
 	});
 		   document.write("</table>");
 		// let sendingText = "https://ignitemeeting.github.io/?ipad=Yes"
