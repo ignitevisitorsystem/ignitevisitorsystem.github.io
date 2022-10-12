@@ -237,7 +237,6 @@
               document.getElementById("removeYes").innerHTML = "<a href='" + removewebsiteYes + "'>Click here to update status to: InActive</a><br>";
           }
          if (get_iPad === 'Yes'){
-		    document.getElementById("date").readOnly = false;
 		   document.getElementById('qrcode').style.display = 'none';
                document.getElementById('logins').style.display = 'none';
              document.getElementById('removeYes').style.display = 'none';
