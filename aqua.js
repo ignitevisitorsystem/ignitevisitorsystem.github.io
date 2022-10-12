@@ -652,6 +652,7 @@ var utcTime = date.toUTCString();
          var lines = "";
 	var today = new Date();
           console.log(today);
+        var todays = new Date().toLocaleString();
          var header = "<head><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;}</style></head>";
 	 var title = "<center><h2>Active Visitor(s) for: " + todays + "</h2><center><a href='https://ignitevisitorsystem.github.io/'>Go Home</a></center><br>";         
 	 db.collection("checkin").where("timestamp", ">",today).where("remove", "==","No").orderBy("checkin","desc")
