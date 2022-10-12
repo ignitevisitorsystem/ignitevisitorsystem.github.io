@@ -955,6 +955,15 @@ if (login.value != null &&  login.value != '' && fname.value != null &&  fname.v
 	    
 	        var g_date = urlParams.get('date')
       console.log(g_date);
+
+  var g_parent = urlParams.get('parent')
+      console.log(g_cname);
+
+  var g_phone = urlParams.get('phone')
+      console.log(g_cname);
+
+  var g_grade = urlParams.get('grade')
+      console.log(g_cname);
 	    
 	    
         var id_remove = urlParams.get('Remove')
@@ -1128,14 +1137,15 @@ if (checkin === 'walkin'){
         document.getElementById('getall').style.display = 'none';
 	 document.getElementById('header').style.display = 'none';
 	 document.getElementById('logo').style.display = 'none';
-     var data = {
+       var data = {
 	   "login": 'walkin',
 	   "key": g_fname + g_lname + g_date,
           "fname": g_fname,
           "lname": g_lname,
-          "email": g_email,
-          "cname": g_cname,
-         "msg": g_message, 
+          "pemail": g_email,
+          "pname": g_parent,
+         "pphone": g_phone, 
+         "grade": g_grade, 
          "date": g_date
         }
     push_to_firebase(data);
