@@ -610,7 +610,7 @@ var utcTime = date.toUTCString();
 	 console.log("Snapshot:" + querySnapshot.size); 
         var cnt = querySnapshot.size;
 	document.write(title);
-	document.write("<center><h3>Find your schedule and Tap 'Select'</b></center></h3>If your schedule is not found below, click <a href='" +  "https://ignitemeeting.github.io/?ipad=Yes"   + "'>here</a> to continue!<br><br>");
+	document.write("<center><h3>Find name and Tap 'Check-In'</b></center></h3>If name is not found below, click <a href='" +  "https://ignitemeeting.github.io/?ipad=Yes"   + "'>here</a> to continue!<br><br>");
         if (cnt === 0){
 		 var nodata = "<br>No data found<br>";
 	  document.write(nodata);
