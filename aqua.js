@@ -1019,6 +1019,11 @@ if (g_all == 'today') {
 }  
 
 if (g_all == 'checkin') {
+	document.getElementById('loading').style.display = 'none';
+	document.getElementById('schedule').style.display = 'none';
+        document.getElementById('getall').style.display = 'none';
+	 document.getElementById('header').style.display = 'none';
+	 document.getElementById('logo').style.display = 'none';
        loadallcheckins();
 } else {
   console.log('string IS empty');
