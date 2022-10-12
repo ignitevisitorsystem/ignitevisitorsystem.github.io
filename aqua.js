@@ -647,14 +647,16 @@ var utcTime = date.toUTCString();
          var lines = "";
 	var today = new Date();
           console.log(today);
-        var todays = new Date().toLocaleString();
+        var todays;
         var start;
  var x;
     var name=prompt("Choose one of the following:\r\n1) Please enter date to search (Example: 10/10/2022) > click [Ok]\r\n2) OR Click [Ok] for Today's date.", "Enter Date To Search");
     if (name!="Enter Date To Search"){
       start = new Date(name);
+      todays = name;
    }else{
    start = new Date();
+     todays = new Date().toLocaleDateString('en-US');   
    }
 const timestampInMs = start.setUTCHours(0,0,0,0);
 var end = new Date();
