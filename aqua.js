@@ -52,6 +52,7 @@
 	var login = data["login"];
 	    var d = new Date();
              myTime = new Date(d).toLocaleString();
+	 var myTime2 = new Date(d).toLocaleDateString('en-US');
         SaveDoc.set({
               login: data["login"],
             firstname: data["firstname"],
@@ -63,6 +64,7 @@
             timestamp: Date.now(),
             key: key,
 	  checkin:myTime,
+	  checkindate:myTime2,
           remove:'No'
         })
         .then(function(doc) {  
