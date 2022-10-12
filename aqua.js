@@ -645,19 +645,7 @@ var utcTime = date.toUTCString();
          var lines = "";
 	var today = new Date();
           console.log(today);
-        var todays;
-        var start;
- //var x;
-//    var name=prompt("Choose one of the following:\r\n1) Please enter date to search (Example: 10/10/2022) > click [Ok]\r\n2) OR Click [Ok] for Today's date.", "Enter Date To Search");
-//    if (name!="Enter Date To Search"){
-//      start = new Date(name);
-//      todays = name;
-//   }else{
-//   start = new Date();
-//     todays = new Date().toLocaleDateString('en-US');   
-//   }
-   start = new Date();
-     todays = new Date().toLocaleDateString('en-US');   
+var start = new Date(); 
 const timestampInMs = start.setUTCHours(0,0,0,0);
 var end = new Date();
 const timestampInMs2 = end.setUTCHours(23,59,59,999);	
@@ -666,6 +654,7 @@ const timestampInSeconds2 = Math.floor(timestampInMs2 / 1000);
   	
          console.log(timestampInSeconds1);
          console.log(timestampInSeconds2);	
+	var  todays = new Date().toLocaleDateString('en-US');  
          var header = "<head><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;}</style></head>";
 	 var title = "<center><h2>Active Visitor(s) for: " + todays + "</h2><center><a href='https://ignitevisitorsystem.github.io/'>Go Home</a></center><br>";         
 	 db.collection("checkin").where("timestamp", ">",timestampInSeconds1).where("remove", "==","No").orderBy("timestamp","desc")
