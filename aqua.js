@@ -125,7 +125,7 @@
         var updateremoveYes = function(data){
         var db = firebase.firestore();
           var key = data["id"];
-        db.collection("messages").doc(key).update({
+        db.collection("members").doc(key).update({
            remove: 'Yes'
 }) .then(function(doc) {
     console.log("doc updated");
@@ -138,7 +138,7 @@
         var updateremoveNO = function(data){
         var db = firebase.firestore();
           var key = data["id"];
-        db.collection("messages").doc(key).update({
+        db.collection("members").doc(key).update({
            remove: 'No'
 }) .then(function(doc) {
     console.log("doc updated");
@@ -160,7 +160,7 @@
           console.log(get_fname);
          console.log(get_lname);
          console.log(get_date);
-    db.collection("messages").where("lastname", "==",get_lname).where("firstname", "==",get_fname).where("date", "==", get_date )
+    db.collection("members").where("lastname", "==",get_lname).where("firstname", "==",get_fname).where("date", "==", get_date )
     .get()
     .then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
@@ -393,7 +393,7 @@ var utcTime = date.toUTCString();
           var key = data["id"];
          		var d = new Date();
              myTime = new Date(d).toLocaleString();
-        db.collection("messages").doc(key).update({
+        db.collection("checkin").doc(key).update({
            checkin: myTime
 }) .then(function(doc) {
     console.log("doc updated");
@@ -418,7 +418,7 @@ var utcTime = date.toUTCString();
           var key = data["id"];
 	      	    var d = new Date();
              myTime = new Date(d).toLocaleString();
-        db.collection("messages").doc(key).update({
+        db.collection("members").doc(key).update({
            checkout: myTime
 }) .then(function(doc) {
     console.log("doc updated");
@@ -433,7 +433,7 @@ var utcTime = date.toUTCString();
       
        var loadfromid = function(data){
         var db = firebase.firestore();
-    db.collection("messages").where("lastname", "==",data["lname"]).where("firstname", "==",data["fname"]).where("date", "==", data["date"])
+    db.collection("members").where("lastname", "==",data["lname"]).where("firstname", "==",data["fname"]).where("date", "==", data["date"])
     .get()
     .then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
