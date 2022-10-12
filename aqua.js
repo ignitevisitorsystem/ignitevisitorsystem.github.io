@@ -530,7 +530,7 @@ var utcTime = date.toUTCString();
       var header = "<head><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;}</style></head>";
     var lines = "";
             let today = new Date().toISOString().slice(0, 10);
-	   var title = "<center><h1>Ignite Church Systems</h1><h2>Active Members Schedule(s) </h2><a href='https://ignitevisitorsystem.github.io/'>Go Home</a><br><br></center>";
+	   var title = "<center><h1>Ignite Church Visitor System</h1><h2>All Check-In Report</h2><a href='https://ignitevisitorsystem.github.io/'>Go Home</a><br><br></center>";
          db.collection("checkin").where("remove", "==","No").orderBy("checkin","desc")
     .get()
     .then((querySnapshot) => {
