@@ -607,24 +607,24 @@ var utcTime = date.toUTCString();
       }
        
        
-        var loadtoday =  function(){
+         var loadtoday =  function(){
            var db = firebase.firestore();
-	 let todaysdate = new Date().toISOString().slice(0, 10);
+	 let todaysdate = new Date();
 	 var count = 0;
 	 var start = new Date();
          start.setHours(0,0,0,0);
          var end = new Date(start.getTime());
          end.setHours(23,59,59,999);
-         start = new Date(start.getTime() - (start.getTimezoneOffset() * 60000)).toISOString();
-         end = new Date(end.getTime() - (end.getTimezoneOffset() * 60000)).toISOString();	 
+         start = new Date(start.getTime() - (start.getTimezoneOffset() * 60000));
+         end = new Date(end.getTime() - (end.getTimezoneOffset() * 60000));	 
          console.log(start);
          console.log(end);		  
          var lines = "";
 	       
          let todays = new Date().toLocaleDateString();
          var header = "<head><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;}</style></head>";
-	 var title = "<center><h2>Active Visitor Schedule(s) for: " + todays + "</h2><center><a href='https://ignitevisitorsystem.github.io/'>Go Home</a></center><br>";      
-         db.collection("messages").where("date", ">=",start).where("date", "<=",end).where("remove", "==","No").orderBy("date","desc")
+	 var title = "<center><h2>Active Visitor(s) for: " + todays + "</h2><center><a href='https://ignitevisitorsystem.github.io/'>Go Home</a></center><br>";      
+         db.collection("checkin").where("date", ">=",start).where("checkin", "<=",end).where("remove", "==","No").orderBy("checkin","desc")
     .get()
     .then((querySnapshot) => {
 	 console.log("Snapshot:" + querySnapshot.size); 
@@ -635,14 +635,14 @@ var utcTime = date.toUTCString();
 		 var nodata = "<br>No data found<br>";
 	  document.write(nodata);
 	}else{
-	  document.write("<table>  <tr>    <th>Aqua Employee</th>    <th>First Name</th>    <th>Last Name</th>    <th>Company</th>     <th>Date/Time</th>      <th>Email</th>       <th>Purpose of Visit</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");
+	  document.write("<table><th>First Name</th>    <th>Last Name</th>    <th>Parent/Guardian</th>     <th>Grade</th>      <th>Email</th>       <th>Phone</th><th>CheckIn</th></tr>");
 	
 	}
          querySnapshot.forEach((doc) => {
 		var nodata = "";
             // doc.data() is never undefined for query doc snapshots
          var dates = new Date(doc.data().date).toLocaleString();
-          document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td>' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://ignitevisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
+          document.write('<tr><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().guardianname + '</td><td>' + doc.data().grade + '</td><td>' + doc.data().email + '</td><td>' + doc.data().phone + '</td><td>' + doc.data().checkin + '</td></tr>');
 		});
 		   document.write("</table>");
 		// let sendingText = "https://ignitemeeting.github.io/?ipad=Yes"
@@ -657,9 +657,7 @@ var utcTime = date.toUTCString();
           document.head.innerHTML = header;
     });
       }
-       
-       
-       
+
          var loaddball =  function(data){
         var db = firebase.firestore();
          var get_login = data["userid"];
