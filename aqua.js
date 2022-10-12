@@ -465,7 +465,7 @@ var utcTime = date.toUTCString();
                alert("Enter your Network Login ID above & try again!");
           }else{
        get_login  = get_login.toString();
-     var title = "<center><h1>Aqua-Aerobic Systems Check-in/out Visitor Schedule</h1><h2>Active Visitor Schedule(s) for: " + get_login + "</h2><a href='https://ignitevisitorsystem.github.io/'>Go Home</a><br><br></center>";
+     var title = "<center><h1>Aqua-Aerobic Systems</h1><h2>Active Member(s) for: " + get_login + "</h2><a href='https://ignitevisitorsystem.github.io/'>Go Home</a><br><br></center>";
      console.log(get_login);
       var header = "<style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;}</style></head>";
       var lines = "";
@@ -603,7 +603,7 @@ var utcTime = date.toUTCString();
 	       
          let todays = new Date().toLocaleDateString();
          var header = "<head><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;}</style></head>";
-	 var title = "<center><h2>Active Visitor Schedule(s) for: " + todays + "</h2><center><a href='https://ignitevisitorsystem.github.io/'></a><br></center>";      
+	 var title = "<center><h1>Ignite Church Systems</h1><h2>Active Members for: " + todays + "</h2><center><a href='https://ignitevisitorsystem.github.io/'></a><br></center>";      
          db.collection("members").where("remove", "==","No").orderBy("lastname","asc").orderBy("firstname","asc")
     .get()
     .then((querySnapshot) => {
@@ -658,7 +658,7 @@ var utcTime = date.toUTCString();
 	console.log(name);
 	var  todays = new Date().toLocaleDateString('en-US');  
          var header = "<head><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;}</style></head>";
-	 var title = "<center><h2>Active Visitor(s) for: " + name + "</h2><center><a href='https://ignitevisitorsystem.github.io/'>Go Home</a></center><br>";         
+	 var title = "<center><h1>Ignite Church Systems</h1><h2>Visitor(s) for: " + name + "</h2><center><a href='https://ignitevisitorsystem.github.io/'>Go Home</a></center><br>";         
 	 db.collection("checkin").where("checkindate", "==",name).where("remove", "==","No").orderBy("checkin","desc")
     .get()
     .then((querySnapshot) => {
