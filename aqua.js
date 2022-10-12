@@ -641,7 +641,7 @@ var utcTime = date.toUTCString();
            var db = firebase.firestore();
 	 let todaysdate = new Date();
 	 var count = 0;
-	 var start = new Date();
+	 var start = new Date().toLocaleDateString();
          start.setHours(0,0,0,0);
          var end = new Date(start.getTime());
          end.setHours(23,59,59,999);
@@ -653,8 +653,8 @@ var utcTime = date.toUTCString();
 	
          let todays = new Date().toLocaleDateString();
          var header = "<head><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;}</style></head>";
-	 var title = "<center><h2>Active Visitor(s) for: " + todays + "</h2><center><a href='https://ignitevisitorsystem.github.io/'>Go Home</a></center><br>";      
-         db.collection("checkin").where("checkin", "==",todays).where("remove", "==","No").orderBy("lastname","desc")
+	 var title = "<center><h2>Active Visitor(s) for: " + todays + "</h2><center><a href='https://ignitevisitorsystem.github.io/'>Go Home</a></center><br>";         
+	 db.collection("checkin").where("checkin", ">=",start).where("checkin", "<=",end).where("remove", "==","No").orderBy("lastname","desc")
     .get()
     .then((querySnapshot) => {
 	 console.log("Snapshot:" + querySnapshot.size); 
