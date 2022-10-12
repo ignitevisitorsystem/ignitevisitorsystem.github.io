@@ -647,17 +647,14 @@ var utcTime = date.toUTCString();
          var lines = "";
 	var today = new Date();
 	 var x;
-	 var myDate;
     var name=prompt("Please enter date to search (Example: 10/12/2022)","Enter Date");
-    if (name!=null){
-      var d = new Date(name);
-      myDate = new Date(d).toLocaleDateString('en-US');
+    if (name!="Enter Date"){
    }else{
        var d = new Date();
-      myDate = new Date(d).toLocaleDateString('en-US');   
+     var myDate = new Date(d).toLocaleDateString('en-US');   
+     name = myDate.toString();
    }	
-        var y = '"' + myDate  + '"';
-	console.log(y);
+	console.log(name);
 	var  todays = new Date().toLocaleDateString('en-US');  
          var header = "<head><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;}</style></head>";
 	 var title = "<center><h2>Active Visitor(s) for: " + todays + "</h2><center><a href='https://ignitevisitorsystem.github.io/'>Go Home</a></center><br>";         
