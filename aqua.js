@@ -238,7 +238,6 @@
           }
          if (get_iPad === 'Yes'){
 		    document.getElementById("date").readOnly = false;
-              document.getElementById("message").readOnly = false;
 		   document.getElementById('qrcode').style.display = 'none';
                document.getElementById('logins').style.display = 'none';
              document.getElementById('removeYes').style.display = 'none';
@@ -255,10 +254,6 @@
 		  
 	 }
            var website = doc.data().key + '&checkin=Now';
-	// var emailwebsite2 = document.getElementById("bitly").value; //document.getElementById("bitly").value;
-         // console.log("bitly: " + document.getElementById("bitly").value);
-          //createbitly
-         // var emailwebsite1 = "<a href=" + document.getElementById("bitly").value + ">Click Here for QR Code</a>";
           var qrcode = new QRious({
   element: document.getElementById("qrcode"),
   background: '#ffffff',
