@@ -647,15 +647,17 @@ var utcTime = date.toUTCString();
           console.log(today);
         var todays;
         var start;
- var x;
-    var name=prompt("Choose one of the following:\r\n1) Please enter date to search (Example: 10/10/2022) > click [Ok]\r\n2) OR Click [Ok] for Today's date.", "Enter Date To Search");
-    if (name!="Enter Date To Search"){
-      start = new Date(name);
-      todays = name;
-   }else{
+ //var x;
+//    var name=prompt("Choose one of the following:\r\n1) Please enter date to search (Example: 10/10/2022) > click [Ok]\r\n2) OR Click [Ok] for Today's date.", "Enter Date To Search");
+//    if (name!="Enter Date To Search"){
+//      start = new Date(name);
+//      todays = name;
+//   }else{
+//   start = new Date();
+//     todays = new Date().toLocaleDateString('en-US');   
+//   }
    start = new Date();
      todays = new Date().toLocaleDateString('en-US');   
-   }
 const timestampInMs = start.setUTCHours(0,0,0,0);
 var end = new Date();
 const timestampInMs2 = end.setUTCHours(23,59,59,999);	
