@@ -645,9 +645,10 @@ var utcTime = date.toUTCString();
          start.setUTCHours(0,0,0,0);
         var end = new Date();
          end.setUTCHours(23,59,59,999);
-	 
-         console.log(start);
-         console.log(end);		  
+         end = end.toUTCString();
+	 start = start.toUTCString();	 
+         console.log(end);
+         console.log(start);		  
          var lines = "";
 	
          let todays = new Date().toLocaleDateString();
