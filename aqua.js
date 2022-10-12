@@ -500,8 +500,8 @@ var utcTime = date.toUTCString();
       var header = "<head><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;}</style></head>";
     var lines = "";
             let today = new Date().toISOString().slice(0, 10);
-	   var title = "<center><h1>Aqua-Aerobic Systems Check-in/out Visitor Schedule</h1><h2>Active Visitor Schedule(s) </h2><a href='https://ignitevisitorsystem.github.io/'>Go Home</a><br><br></center>";
-         db.collection("messages").where("remove", "==","No").orderBy("date","desc")
+	   var title = "<center><h1>Ignite Church Systems</h1><h2>Active Members Schedule(s) </h2><a href='https://ignitevisitorsystem.github.io/'>Go Home</a><br><br></center>";
+         db.collection("members").where("remove", "==","No").orderBy("lastname","desc")
     .get()
     .then((querySnapshot) => {
 	   var cnt = querySnapshot.size;
@@ -510,12 +510,42 @@ var utcTime = date.toUTCString();
 		 var nodata = "<br>No data found<br>";
 	  document.write(nodata);
 	}else{
-	  document.write("<table>  <tr>    <th>Aqua Employee</th>    <th>First Name</th>    <th>Last Name</th>    <th>Company</th>     <th>Date/Time</th>      <th>Email</th>       <th>Purpose of Visit</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");
+	  document.write("<table>  <tr> <th>Admin</th><th>First Name</th>    <th>Last Name</th>    <th>Parent/Guardian</th>     <th>Grade</th>      <th>Email</th>       <th>Phone</th><th>Edit</th>  </tr>");
 	}
         querySnapshot.forEach((doc) => {
             console.log(doc.id, " => ", doc.data());
 	   var dates = new Date(doc.data().date).toLocaleString();
-          document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td>' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://ignitevisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
+          document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().guardianname + '</td><td>' + doc.data().grade + '</td><td>' + doc.data().email + '</td><td>' + doc.data().phone + '</td><td><a href="https://ignitevisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
+	});
+         document.write("</table>");
+         document.head.innerHTML = header;
+    })
+    .catch((error) => {
+        console.log("Error getting documents: ", error);
+    });
+      }
+       
+       var loadallcheckins =  function(){
+       var db = firebase.firestore();
+      var header = "<head><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;}</style></head>";
+    var lines = "";
+            let today = new Date().toISOString().slice(0, 10);
+	   var title = "<center><h1>Ignite Church Systems</h1><h2>Active Members Schedule(s) </h2><a href='https://ignitevisitorsystem.github.io/'>Go Home</a><br><br></center>";
+         db.collection("checkin").where("remove", "==","No").orderBy("checkin","desc")
+    .get()
+    .then((querySnapshot) => {
+	   var cnt = querySnapshot.size;
+		 document.write(title);
+	    if (cnt === 0){
+		 var nodata = "<br>No data found<br>";
+	  document.write(nodata);
+	}else{
+	  document.write("<table>  <tr> <th>Admin</th><th>First Name</th>    <th>Last Name</th>    <th>Parent/Guardian</th>     <th>Grade</th>      <th>Email</th>       <th>Phone</th><th>Check-In</th></tr>");
+	}
+        querySnapshot.forEach((doc) => {
+            console.log(doc.id, " => ", doc.data());
+	   var dates = new Date(doc.data().date).toLocaleString();
+          document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().guardianname + '</td><td>' + doc.data().grade + '</td><td>' + doc.data().email + '</td><td>' + doc.data().phone + '</td><td>' + doc.data().checkin + '</td></tr>');
 	});
          document.write("</table>");
          document.head.innerHTML = header;
@@ -526,12 +556,12 @@ var utcTime = date.toUTCString();
       }
        
         var loadinactive =  function(){
-       var db = firebase.firestore();
+  var db = firebase.firestore();
       var header = "<head><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;}</style></head>";
     var lines = "";
             let today = new Date().toISOString().slice(0, 10);
-	   var title = "<center><h1>Aqua-Aerobic Systems Check-in/out Visitor Schedule</h1><h2>In-Active Visitor Schedule(s) </h2><a href='https://ignitevisitorsystem.github.io/'>Go Home</a><br><br></center>";
-         db.collection("messages").where("remove", "==","Yes").orderBy("date","desc")
+	   var title = "<center><h1>Ignite Church Systems</h1><h2>Active Members Schedule(s) </h2><a href='https://ignitevisitorsystem.github.io/'>Go Home</a><br><br></center>";
+         db.collection("members").where("remove", "==","Yes").orderBy("lastname","desc")
     .get()
     .then((querySnapshot) => {
 	   var cnt = querySnapshot.size;
@@ -540,12 +570,12 @@ var utcTime = date.toUTCString();
 		 var nodata = "<br>No data found<br>";
 	  document.write(nodata);
 	}else{
-	  document.write("<table>  <tr>    <th>Aqua Employee</th>    <th>First Name</th>    <th>Last Name</th>    <th>Company</th>     <th>Date/Time</th>      <th>Email</th>       <th>Purpose of Visit</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");
+	  document.write("<table>  <tr> <th>Admin</th><th>First Name</th>    <th>Last Name</th>    <th>Parent/Guardian</th>     <th>Grade</th>      <th>Email</th>       <th>Phone</th><th>Edit</th>  </tr>");
 	}
         querySnapshot.forEach((doc) => {
             console.log(doc.id, " => ", doc.data());
 	   var dates = new Date(doc.data().date).toLocaleString();
-          document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().company + '</td><td>' + dates + '</td><td>' + doc.data().email + '</td><td>' + doc.data().message + '</td><td>' + doc.data().checkin + '</td><td>' + doc.data().checkout + '</td><td><a href="https://ignitevisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
+          document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().guardianname + '</td><td>' + doc.data().grade + '</td><td>' + doc.data().email + '</td><td>' + doc.data().phone + '</td><td><a href="https://ignitevisitorsystem.github.io/?id=' + doc.data().key + '">Click here</a></td></tr>');
 	});
          document.write("</table>");
          document.head.innerHTML = header;
@@ -583,14 +613,14 @@ var utcTime = date.toUTCString();
 		 var nodata = "<br>No data found<br>";
 	  document.write(nodata);
 	}else{
-			  document.write("<table>  <tr>   <th>First Name</th>    <th>Last Name</th>    <th>Parent/Guardian</th>     <th>Grade</th></tr>");
+			  document.write("<table>  <tr>   <th>Admin</th><th>First Name</th>    <th>Last Name</th>    <th>Parent/Guardian</th>     <th>Grade</th></tr>");
    
 	}
          querySnapshot.forEach((doc) => {
 		var nodata = "";
             // doc.data() is never undefined for query doc snapshots
            var dates = new Date(doc.data().date).toLocaleString();
-          document.write('<tr><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().guardianname + '</td><td>' + doc.data().grade + '</td><td><a href="https://ignitevisitorsystem.github.io/?iPadid=' + doc.data().key + '">Click here</a></td></tr>');
+          document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().guardianname + '</td><td>' + doc.data().grade + '</td><td><a href="https://ignitevisitorsystem.github.io/?iPadid=' + doc.data().key + '">Click here</a></td></tr>');
 	});
 		   document.write("</table>");
 		// let sendingText = "https://ignitemeeting.github.io/?ipad=Yes"
@@ -635,14 +665,14 @@ var utcTime = date.toUTCString();
 		 var nodata = "<br>No data found<br>";
 	  document.write(nodata);
 	}else{
-	  document.write("<table><th>First Name</th>    <th>Last Name</th>    <th>Parent/Guardian</th>     <th>Grade</th>      <th>Email</th>       <th>Phone</th><th>CheckIn</th></tr>");
+	  document.write("<table><th>Admin</th><th>First Name</th>    <th>Last Name</th>    <th>Parent/Guardian</th>     <th>Grade</th>      <th>Email</th>       <th>Phone</th><th>CheckIn</th></tr>");
 	
 	}
          querySnapshot.forEach((doc) => {
 		var nodata = "";
             // doc.data() is never undefined for query doc snapshots
          var dates = new Date(doc.data().date).toLocaleString();
-          document.write('<tr><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().guardianname + '</td><td>' + doc.data().grade + '</td><td>' + doc.data().email + '</td><td>' + doc.data().phone + '</td><td>' + doc.data().checkin + '</td></tr>');
+          document.write('<tr><td>' + doc.data().login + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().guardianname + '</td><td>' + doc.data().grade + '</td><td>' + doc.data().email + '</td><td>' + doc.data().phone + '</td><td>' + doc.data().checkin + '</td></tr>');
 		});
 		   document.write("</table>");
 		// let sendingText = "https://ignitemeeting.github.io/?ipad=Yes"
@@ -662,16 +692,16 @@ var utcTime = date.toUTCString();
         var db = firebase.firestore();
          var get_login = data["userid"];
          if (get_login  === null || get_login === '') {
-               alert("Enter your Network Login ID above & try again!");
+               alert("Enter your First Initial, Last Name above & try again!");
           }else{
        get_login  = get_login.toString();
      console.log(get_login);
       var header = "<head><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;}</style></head>";
-    var title = "<center><h1>Aqua-Aerobic Systems Check-in/out Visitor Schedule</h1><h2>In-Active Visitor Schedule(s) for: " + get_login + "</h2><a href='https://ignitevisitorsystem.github.io/'>Go Home</a><br></center>";      
+    var title = "<center><h1>Ignite Church Members Report</h1><h2>In-Active Visitor Members(s) for: " + get_login + "</h2><a href='https://ignitevisitorsystem.github.io/'>Go Home</a><br></center>";      
      
 		  var lines = "";
             let today = new Date().toISOString().slice(0, 10);
-         db.collection("messages").where("login", "==",get_login).where("remove", "==","Yes").orderBy("date","desc")
+         db.collection("members").where("login", "==",get_login).where("remove", "==","Yes").orderBy("lastname","desc")
     .get()
     .then((querySnapshot) => {
 		   var cnt = querySnapshot.size;
@@ -680,7 +710,7 @@ var utcTime = date.toUTCString();
 		 var nodata = "<br>No data found<br>";
 	  document.write(nodata);
 	}else{
-	   document.write("<table>  <tr>    <th>Aqua Employee</th>    <th>First Name</th>    <th>Last Name</th>    <th>Company</th>     <th>Date/Time</th>      <th>Email</th>       <th>Purpose of Visit</th><th>CheckIn</th><th>CheckOut</th><th>Edit</th>  </tr>");
+	   document.write("<table>  <tr><th>Admin</th><th>First Name</th>    <th>Last Name</th>    <th>Parent/Guardian</th>     <th>Grade</th>      <th>Email</th>       <th>Phone</th><th>Edit</th>  </tr>");
  
 	}
         querySnapshot.forEach((doc) => {
@@ -945,7 +975,8 @@ if (login.value != null &&  login.value != '' && fname.value != null &&  fname.v
 	    
       var g_today = urlParams.get('today')
       console.log(g_today);
-	    
+
+
 	    //loaddbtoday
 	    
 	    
@@ -978,6 +1009,12 @@ if (g_all == 'no') {
 
 if (g_all == 'today') {
        loadtoday();
+} else {
+  console.log('string IS empty');
+}  
+
+if (g_all == 'checkin') {
+       loadallcheckins();
 } else {
   console.log('string IS empty');
 }  
