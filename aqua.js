@@ -641,21 +641,22 @@ var utcTime = date.toUTCString();
            var db = firebase.firestore();
 	 let todaysdate = new Date();
 	 var count = 0;
-		var start = new Date();
-         start.setUTCHours(0,0,0,0);
-        var end = new Date();
-         end.setUTCHours(23,59,59,999);
-         end = end.toUTCString();
-	 start = start.toUTCString();	 
+	
          console.log(end);
          console.log(start);		  
          var lines = "";
 	var today = new Date();
           console.log(today);
         var todays = new Date().toLocaleString();
-		 var start = new Date();
+        var start;
+ var x;
+    var name=prompt("Choose one of the following:\r\n1) Please enter date to search (Example: 10/10/2022) > click [Ok]\r\n2) OR Click [Ok] for Today's date.", "Enter Date To Search");
+    if (name!="Enter Date To Search"){
+      start = new Date(name);
+   }else{
+   start = new Date();
+   }
 const timestampInMs = start.setUTCHours(0,0,0,0);
-start.setUTCHours(0,0,0,0);
 var end = new Date();
 const timestampInMs2 = end.setUTCHours(23,59,59,999);	
 const timestampInSeconds1 = Math.floor(timestampInMs / 1000);
