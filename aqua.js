@@ -653,9 +653,17 @@ var utcTime = date.toUTCString();
 	var today = new Date();
           console.log(today);
         var todays = new Date().toLocaleString();
+		 var start = new Date();
+const timestampInMs = start.setUTCHours(0,0,0,0);
+start.setUTCHours(0,0,0,0);
+var end = new Date();
+const timestampInMs2 = end.setUTCHours(23,59,59,999);	
+const timestampInSeconds1 = Math.floor(timestampInMs / 1000);
+const timestampInSeconds2 = Math.floor(timestampInMs2 / 1000);
+  
          var header = "<head><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;}</style></head>";
 	 var title = "<center><h2>Active Visitor(s) for: " + todays + "</h2><center><a href='https://ignitevisitorsystem.github.io/'>Go Home</a></center><br>";         
-	 db.collection("checkin").where("timestamp", ">",today).where("remove", "==","No").orderBy("timestamp","desc")
+	 db.collection("checkin").where("timestamp", ">=",timestampInSeconds1).where("timestamp", "<=",timestampInSeconds2).where("remove", "==","No").orderBy("timestamp","desc")
     .get()
     .then((querySnapshot) => {
 	 console.log("Snapshot:" + querySnapshot.size); 
