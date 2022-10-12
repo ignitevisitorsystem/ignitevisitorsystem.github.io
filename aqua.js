@@ -646,7 +646,6 @@ var utcTime = date.toUTCString();
 
          var lines = "";
 	var today = new Date();
-          console.log(today);
 	 var x;
 	 var myDate;
     var name=prompt("Please enter date to search (Example: 10/12/2022)","Enter Date");
@@ -656,10 +655,12 @@ var utcTime = date.toUTCString();
    }else{
       myDate = new Date().toLocaleDateString('en-US');   
    }	
+        var y = "'" + myTime  + "'"
+	console.log(y);
 	var  todays = new Date().toLocaleDateString('en-US');  
          var header = "<head><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;}</style></head>";
 	 var title = "<center><h2>Active Visitor(s) for: " + todays + "</h2><center><a href='https://ignitevisitorsystem.github.io/'>Go Home</a></center><br>";         
-	 db.collection("checkin").where("checkindate", "==",myDate).where("remove", "==","No").orderBy("timestamp","desc")
+	 db.collection("checkin").where("checkindate", "==",y).where("remove", "==","No").orderBy("checkin","desc")
     .get()
     .then((querySnapshot) => {
 	 console.log("Snapshot:" + querySnapshot.size); 
