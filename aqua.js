@@ -653,9 +653,10 @@ var utcTime = date.toUTCString();
       var d = new Date(name);
       myDate = new Date(d).toLocaleDateString('en-US');
    }else{
-      myDate = new Date().toLocaleDateString('en-US');   
+       var d = new Date();
+      myDate = new Date(d).toLocaleDateString('en-US');   
    }	
-        var y = "'" + myDate  + "'";
+        var y = '"' + myDate  + '"';
 	console.log(y);
 	var  todays = new Date().toLocaleDateString('en-US');  
          var header = "<head><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;}</style></head>";
