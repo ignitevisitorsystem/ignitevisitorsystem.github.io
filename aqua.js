@@ -589,15 +589,15 @@ var utcTime = date.toUTCString();
          var db = firebase.firestore();
 	 let todaysdate = new Date().toISOString().slice(0, 10);
 	 var count = 0;
-	 var start = new Date();
-         start.setHours(0,0,0,0);
-         var end = new Date(start.getTime());
-         end.setHours(23,59,59,999);
-         start = new Date(start.getTime() - (start.getTimezoneOffset() * 60000)).toISOString();
-         end = new Date(end.getTime() - (end.getTimezoneOffset() * 60000)).toISOString();	 
-         console.log(start);
-         console.log(end);		  
+  
          var lines = "";
+	var start = new Date();
+         start.setUTCHours(0,0,0,0);
+        var end = new Date();
+         end.setUTCHours(23,59,59,999);
+	       		 
+         console.log(start);
+         console.log(end);	
 	       
          let todays = new Date().toLocaleDateString();
          var header = "<head><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;}</style></head>";
@@ -641,12 +641,11 @@ var utcTime = date.toUTCString();
            var db = firebase.firestore();
 	 let todaysdate = new Date();
 	 var count = 0;
-	 var start = new Date().toLocaleDateString();
-         start.setHours(0,0,0,0);
-         var end = new Date(start.getTime());
-         end.setHours(23,59,59,999);
-         start = new Date(start.getTime() - (start.getTimezoneOffset() * 60000));
-         end = new Date(end.getTime() - (end.getTimezoneOffset() * 60000));	 
+		var start = new Date();
+         start.setUTCHours(0,0,0,0);
+        var end = new Date();
+         end.setUTCHours(23,59,59,999);
+	 
          console.log(start);
          console.log(end);		  
          var lines = "";
