@@ -622,7 +622,9 @@ var utcTime = date.toUTCString();
 		var nodata = "";
             // doc.data() is never undefined for query doc snapshots
            var dates = new Date(doc.data().date).toLocaleString();
-          var button =  "<button onclick='window.location.href='https://ignitevisitorsystem.github.io/?iPadid=' + doc.data().key + ';'>Check-In</button>";
+          var links = "https://ignitevisitorsystem.github.io/?iPadid=' + doc.data().key 
+          var button =  '<button onclick="window.location.href='" + links + "';">Check-In</button>';
+	  //<button onclick="window.location.href='https://w3docs.com';">Click Here</button>
           document.write('<tr><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().guardianname + '</td><td>' + doc.data().grade + '</td><td>' + button + '</td></tr>');
 	});
 		   document.write("</table></center>");
