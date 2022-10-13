@@ -623,7 +623,7 @@ var utcTime = date.toUTCString();
             // doc.data() is never undefined for query doc snapshots
            var dates = new Date(doc.data().date).toLocaleString();
           var links = "'https://ignitevisitorsystem.github.io/?iPadid=" + doc.data().key + "'";
-          var buttons =  '<button onclick="window.location.href=' + links + ';">Check-In</button>';
+          var buttons =  '<button onclick="window.location.href=' + links + ';" style="background-color: yellow;">Check-In</button>';
 	  console.log(buttons);
 	  //<button onclick="window.location.href='https://w3docs.com';">Click Here</button>
           document.write('<tr><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().guardianname + '</td><td>' + doc.data().grade + '</td><td>' + buttons + '</td></tr>');
