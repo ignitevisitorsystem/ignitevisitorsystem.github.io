@@ -382,6 +382,15 @@ var utcTime = date.toUTCString();
     })
     .catch((error) => {
        console.log("Error getting documents: ", error);
+		 	  document.write('<body style="font-family: sans-serif;color: blue;">');
+           	   document.write("<center>");
+	  document.write('<img id="logo" src="ignite.jpg" width="500px">');
+            document.write("<p style='font-size:20px;color: blue;'>This QR code has expired or is invalid!</p>");
+	  document.write("<p style='font-size:20px;color: black;'>Please dispose of your badge before leaving reception/lobby!</p>");
+            document.write("<p style='font-size:20px;color: blue;'>Have a great day!</p>");
+	  document.write("<p style='font-size:15px;color: black;'><br><br><br>current date/time: " + NowTime + "</p>");
+	   document.write("</center>");
+    document.write('</body>');
     });
       }
        
