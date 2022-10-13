@@ -603,14 +603,14 @@ var utcTime = date.toUTCString();
 	       
          let todays = new Date().toLocaleDateString();
          var header = "<head><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;}</style></head>";
-	 var title = "<center><h1>Ignite Church Visitor System</h1><h2>Active Members for: " + todays + "</h2></center><center><a href='https://ignitevisitorsystem.github.io/'></a></center>";      
+	 var title = "<center><h1>Ignite Church Visitor System</h1><h2>Today's Date: " + todays + "</h2></center><center><a href='https://ignitevisitorsystem.github.io/'></a></center>";      
          db.collection("members").where("remove", "==","No").orderBy("lastname","asc").orderBy("firstname","asc")
     .get()
     .then((querySnapshot) => {
 	 console.log("Snapshot:" + querySnapshot.size); 
         var cnt = querySnapshot.size;
 	document.write(title);
-	document.write("<center><h3>Find name and Tap 'Check-In'</b></center></h3>If name is not found below, click <a href='" +  "https://ignitemeeting.github.io/?ipad=Yes"   + "'>here</a> to continue!<br><br>");
+	document.write("<center><h3>Find name and Tap 'Check-In'</b></center></h3>If name is not found below, click <a href='" +  "https://ignitemeeting.github.io/?ipad=Yes"   + "'>here</a> to continue!<br><br></center>");
         if (cnt === 0){
 		 var nodata = "<br>No data found<br>";
 	  document.write(nodata);
