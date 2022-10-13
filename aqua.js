@@ -622,7 +622,7 @@ var utcTime = date.toUTCString();
 		var nodata = "";
             // doc.data() is never undefined for query doc snapshots
            var dates = new Date(doc.data().date).toLocaleString();
-          document.write('<tr><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().guardianname + '</td><td>' + doc.data().grade + '</td><td><form action="https://ignitevisitorsystem.github.io/?iPadid=' + doc.data().key + '"><input type="submit" value="Check-In" /></form></td></tr>');
+          document.write('<tr><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().guardianname + '</td><td>' + doc.data().grade + '</td><td style="padding: 1px;"><form action="https://ignitevisitorsystem.github.io/?iPadid=' + doc.data().key + '"><input type="submit" value="Check-In" /></form></td></tr>');
 	});
 		   document.write("</table></center>");
 		// let sendingText = "https://ignitemeeting.github.io/?ipad=Yes"
