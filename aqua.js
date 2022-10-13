@@ -658,14 +658,14 @@ var utcTime = date.toUTCString();
 	console.log(name);
 	var  todays = new Date().toLocaleDateString('en-US');  
          var header = "<head><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;}</style></head>";
-	 var title = "<center><h1>Ignite Church Visitor System</h1><h2>Visitor(s) for: " + name + "</h2><center><a href='https://ignitevisitorsystem.github.io/'>Go Home</a></center><br>";         
+	 var title = "<center><h1>Ignite Church Visitor System</h1><h2>Visitor(s) for: " + name + "</h2></center><center><a href='https://ignitevisitorsystem.github.io/'>Go Home</a></center><br>";         
 	 db.collection("checkin").where("checkindate", "==",name).where("remove", "==","No").orderBy("checkin","desc")
     .get()
     .then((querySnapshot) => {
 	 console.log("Snapshot:" + querySnapshot.size); 
         var cnt = querySnapshot.size;
 	document.write(title);
-	//document.write("<center><h3>Find your name and Tap 'Check-In'</b></center></h3>If your name is not found below, click <a href='" +  "https://ignitemeeting.github.io/?ipad=Yes"   + "'>here</a> to continue!<br><br>");
+	//document.write("<center><h3>Find your name and Tap 'Check-In'</b></center></h3>If your name is not found below, click <a href='" +  "https://ignitemeeting.github.io/?ipad=Yes"   + "'>here</a> to continue!<br><br><center>");
         if (cnt === 0){
 		 var nodata = "<br>No data found<br>";
 	  document.write(nodata);
