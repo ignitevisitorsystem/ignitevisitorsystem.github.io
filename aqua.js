@@ -603,7 +603,7 @@ var utcTime = date.toUTCString();
 	       
          let todays = new Date().toLocaleDateString();
          var header = "<head><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;}</style></head>";
-	 var title = "<center><h1>Ignite Church Visitor System</h1><h2>Active Members for: " + todays + "</h2><center><a href='https://ignitevisitorsystem.github.io/'></a><br></center>";      
+	 var title = "<center><h1>Ignite Church Visitor System</h1><h2>Active Members for: " + todays + "</h2></center><center><a href='https://ignitevisitorsystem.github.io/'></a></center>";      
          db.collection("members").where("remove", "==","No").orderBy("lastname","asc").orderBy("firstname","asc")
     .get()
     .then((querySnapshot) => {
@@ -624,7 +624,7 @@ var utcTime = date.toUTCString();
            var dates = new Date(doc.data().date).toLocaleString();
           document.write('<tr><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().guardianname + '</td><td>' + doc.data().grade + '</td><td><a href="https://ignitevisitorsystem.github.io/?iPadid=' + doc.data().key + '">Check-In</a></td></tr>');
 	});
-		   document.write("</table>");
+		   document.write("</table></center>");
 		// let sendingText = "https://ignitemeeting.github.io/?ipad=Yes"
 	           document.head.innerHTML = header;
     }) 
