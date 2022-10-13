@@ -610,12 +610,12 @@ var utcTime = date.toUTCString();
 	 console.log("Snapshot:" + querySnapshot.size); 
         var cnt = querySnapshot.size;
 	document.write(title);
-	document.write("<center><h2  style='color: blue;'>Find name and tap 'Check-In' button</b></h2></center><center>If name is not found below, click <a href='" +  "https://ignitemeeting.github.io/?ipad=Yes"   + "'>here</a> to continue!<br><br></center>");
+	document.write("<center><h2  style='color: blue;'>Find name and tap 'Select' button</b></h2></center><center>If name is not found below, click <a href='" +  "https://ignitemeeting.github.io/?ipad=Yes"   + "'>here</a> to continue!<br><br></center>");
         if (cnt === 0){
 		 var nodata = "<br>No data found<br>";
 	  document.write(nodata);
 	}else{
-			  document.write("<table>  <tr><th>First Name</th>    <th>Last Name</th>    <th>Parent/Guardian</th>     <th>Grade</th></tr>");
+			  document.write("<table>  <tr><th>Last Name</th>    <th>First Name</th>    <th>Grade</th>     <th>Parent/Guardian</th></tr>");
    
 	}
          querySnapshot.forEach((doc) => {
@@ -623,10 +623,10 @@ var utcTime = date.toUTCString();
             // doc.data() is never undefined for query doc snapshots
            var dates = new Date(doc.data().date).toLocaleString();
           var links = "'https://ignitevisitorsystem.github.io/?iPadid=" + doc.data().key + "'";
-          var buttons =  '<button onclick="window.location.href=' + links + ';" style="background-color: yellow;font-weight: bold;border-color: black;font-size: medium;">Check-In</button>';
+          var buttons =  '<button onclick="window.location.href=' + links + ';" style="background-color: yellow;font-weight: bold;border-color: black;font-size: medium;">Select</button>';
 	  console.log(buttons);
 	  //<button onclick="window.location.href='https://w3docs.com';">Click Here</button>
-          document.write('<tr><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().guardianname + '</td><td>' + doc.data().grade + '</td><td>' + buttons + '</td></tr>');
+          document.write('<tr><td>' + doc.data().lastname + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().grade + '</td><td>' + doc.data().guardianname + '</td><td>' + buttons + '</td></tr>');
 	});
 		   document.write("</table></center>");
 		// let sendingText = "https://ignitemeeting.github.io/?ipad=Yes"
