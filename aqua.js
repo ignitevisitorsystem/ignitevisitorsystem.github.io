@@ -610,7 +610,7 @@ var utcTime = date.toUTCString();
 	 console.log("Snapshot:" + querySnapshot.size); 
         var cnt = querySnapshot.size;
 	document.write(title);
-	document.write("<center><h2  style='color: blue;'>Find name and Tap 'Check-In'</b></h2></center><center>If name is not found below, click <a href='" +  "https://ignitemeeting.github.io/?ipad=Yes"   + "'>here</a> to continue!<br><br></center>");
+	document.write("<center><h2  style='color: blue;'>Find name and tap 'Check-In' button</b></h2></center><center>If name is not found below, click <a href='" +  "https://ignitemeeting.github.io/?ipad=Yes"   + "'>here</a> to continue!<br><br></center>");
         if (cnt === 0){
 		 var nodata = "<br>No data found<br>";
 	  document.write(nodata);
@@ -622,7 +622,7 @@ var utcTime = date.toUTCString();
 		var nodata = "";
             // doc.data() is never undefined for query doc snapshots
            var dates = new Date(doc.data().date).toLocaleString();
-          document.write('<tr><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().guardianname + '</td><td>' + doc.data().grade + '</td><td><a href="https://ignitevisitorsystem.github.io/?iPadid=' + doc.data().key + '">Check-In</a></td></tr>');
+          document.write('<tr><td>' + doc.data().firstname + '</td><td>' + doc.data().lastname + '</td><td>' + doc.data().guardianname + '</td><td>' + doc.data().grade + '</td><td><form action="https://ignitevisitorsystem.github.io/?iPadid=' + doc.data().key + '"><input type="submit" value="Check-In" /></form></td></tr>');
 	});
 		   document.write("</table></center>");
 		// let sendingText = "https://ignitemeeting.github.io/?ipad=Yes"
