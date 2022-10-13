@@ -603,7 +603,7 @@ var utcTime = date.toUTCString();
 	       
          let todays = new Date().toLocaleDateString();
          var header = "<head><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;}</style></head>";
-	 var title = "<center><h1>Ignite Church Visitor System</h1><h2>Today's Date: " + todays + "</h2></center><center><a href='https://ignitevisitorsystem.github.io/'></a></center>";      
+	 var title = "<center><h1>Ignite Church Visitor System</h1><b>Today's Date: " + todays + "</b></center><center><a href='https://ignitevisitorsystem.github.io/'></a><br></center>";      
          db.collection("members").where("remove", "==","No").orderBy("lastname","asc").orderBy("firstname","asc")
     .get()
     .then((querySnapshot) => {
