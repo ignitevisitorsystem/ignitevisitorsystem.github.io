@@ -248,9 +248,14 @@
       document.getElementById('get_msg').style.display = 'none';
 		 document.getElementById('update_db').innerText = 'Update';
 		  document.getElementById("emaillink").innerHTML = "";
-		 document.getElementById("remove").innerHTML = "If needed, update 'Guest' fields above then tap 'Update' button below";
+		 document.getElementById("remove").innerHTML = "If needed, update fields above then tap 'Update' button below. TAP BELOW "Tap Here to Check-In/Out";
+		  document.getElementById("fname").innerHTML = "First Name";
+		  document.getElementById("lname").innerHTML = "Last Name";
 		 document.getElementById('update_db').style.width = 'min-content';
+		 document.getElementById('update_db').style.backgroundColor = 'CORNFLOWERBLUE';
 		  document.getElementById('checkin').style.display = 'block';
+		 document.getElementById('checkin').style.backgroundColor = 'RED';
+		 document.getElementById('checkin').innerText = 'Check-In Now';
 		 
 		  
 	 }
