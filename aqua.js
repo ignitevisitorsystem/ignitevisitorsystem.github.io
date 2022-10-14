@@ -610,7 +610,10 @@ var utcTime = date.toUTCString();
       }
       
       function updateValue(e) {
-	     
+	      if (e.key === "Enter") {
+    e.preventDefault();
+   
+  
   log.textContent = e.target.value;
 	      console.log(e.target.value);
 	      var db = firebase.firestore();
@@ -650,6 +653,7 @@ db.collection("members").where("remove", "==","No").where("lastname", ">=", e.ta
 	  document.write(nodata);
           document.head.innerHTML = header;
     });
+		      }
        }
        
        var loaddbtoday =  function(){
