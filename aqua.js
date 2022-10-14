@@ -946,6 +946,7 @@ if (login.value != null &&  login.value != '' && fname.value != null &&  fname.v
        document.getElementById('logins').style.display = 'none';
        document.getElementById('get_id2').style.display = 'none';
 	     document.getElementById('checkin').style.display = 'none';
+document.getElementById('search').style.display = 'none';
 
       document.getElementById("submit_msg").addEventListener("click", contact_submit);
        document.getElementById("update_db").addEventListener("click",update_submit);
