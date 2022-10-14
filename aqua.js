@@ -610,6 +610,7 @@ var utcTime = date.toUTCString();
       }
       
       function updateValue(e) {
+	      document.getElementById('search').style.display = 'block';
   log.textContent = e.target.value;
 	      console.log(e.target.value);
 	      var db = firebase.firestore();
