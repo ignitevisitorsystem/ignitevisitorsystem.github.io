@@ -611,6 +611,7 @@ var utcTime = date.toUTCString();
       
       function updateValue(e) {
   log.textContent = e.target.value;
+	      console.log(e.target.value);
        }
        
        var loaddbtoday =  function(){
