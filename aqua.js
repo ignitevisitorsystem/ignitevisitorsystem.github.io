@@ -257,7 +257,7 @@
 		 document.getElementById('update_db').style.backgroundColor = 'CORNFLOWERBLUE';
 		  document.getElementById('checkin').style.display = 'block';
 		 document.getElementById('checkin').style.backgroundColor = 'RED';
-		 document.getElementById('checkin').innerText = 'Check-In Now';
+		 document.getElementById('checkin').innerText = 'TAP HERE TO CHECK-IN...';
 		 
 		  
 	 }
