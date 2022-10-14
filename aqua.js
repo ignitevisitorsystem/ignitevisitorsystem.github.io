@@ -248,7 +248,7 @@
       document.getElementById('get_msg').style.display = 'none';
 		 document.getElementById('update_db').innerText = 'Update';
 		  document.getElementById("emaillink").innerHTML = "";
-		 document.getElementById("remove").innerHTML = "If needed, update fields above then tap 'Update' button below. TAP BELOW "Tap Here to Check-In/Out";
+		 document.getElementById("remove").innerHTML = "If needed, update fields above then tap 'Update' button below.";
 		  document.getElementById("fname").innerHTML = "First Name";
 		  document.getElementById("lname").innerHTML = "Last Name";
 		 document.getElementById('update_db').style.width = 'min-content';
