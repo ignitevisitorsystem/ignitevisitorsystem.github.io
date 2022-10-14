@@ -610,7 +610,7 @@ var utcTime = date.toUTCString();
       }
       
       function updateValue(e) {
-	      document.getElementById('search').style.display = 'block';
+	     
   log.textContent = e.target.value;
 	      console.log(e.target.value);
 	      var db = firebase.firestore();
@@ -996,7 +996,7 @@ if (login.value != null &&  login.value != '' && fname.value != null &&  fname.v
             document.getElementById("schedule").addEventListener("click", schedule);
             document.getElementById("getall").addEventListener("click", getall);
 	    document.getElementById("checkin").addEventListener("click", gocheckin);
-   document.getElementById("searchit").addEventListener("input", updateValue);
+   document.getElementById("searchit").addEventListener("keypress", updateValue);
 
    //iPadid
 	    
