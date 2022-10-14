@@ -614,7 +614,7 @@ var utcTime = date.toUTCString();
     e.preventDefault();
    
   
-  log.textContent = e.target.value;
+  //log.textContent = e.target.value;
 	      console.log(e.target.value);
 	      var db = firebase.firestore();
 let todays = new Date().toLocaleDateString();
@@ -626,7 +626,7 @@ db.collection("members").where("remove", "==","No").where("lastname", ">=", e.ta
 	 console.log("Snapshot:" + querySnapshot.size); 
         var cnt = querySnapshot.size;
 	document.write(title);
-	document.write("<center><h2  style='color: blue;'>Find name and tap 'Select' button</b></h2></center><center>If name is not found below, click <a href='" +  "https://ignitemeeting.github.io/?ipad=Yes"   + "'>here</a> to continue!<br><br></center>");
+	document.write("<center><h2  style='color: blue;'>Find name and tap 'Select' button</b></h2></center><center>If name is not found below, tap <a href='https://ignitevisitorsystem.github.io/?today=Now'>here</a> to search again or click <a href='" +  "https://ignitemeeting.github.io/?ipad=Yes"   + "'>here</a> to continue!<br><br></center>");
         if (cnt === 0){
 		 var nodata = "<br>No data found<br>";
 	  document.write(nodata);
