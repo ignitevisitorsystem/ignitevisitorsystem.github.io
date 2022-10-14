@@ -337,7 +337,7 @@ var utcTime = date.toUTCString();
 	   document.cookie = "checkin=" + get_id + "; expires=" + utcTime + ";";
 	  //document.cookie = "YOUR_COOKIE=yes; expires=" + utcTime + ";";
 	   document.write("<center>");
-	  document.write('<img id="logo" src="ignite.jpg" width="350px">');
+	  document.write('<img id="logo" src="ignite.jpg" width="300px">');
 	    document.write("<p style='font-size:45px;'>Guest: <b>" + varFName + " " + varLName + "</b></p>");
 	  document.write('<canvas id="qrcodes"></canvas>');
 	  document.write("<p style='font-size:25px;color: black;'>Parent/Guardian: " + varcp + "</p>");
@@ -348,8 +348,8 @@ var utcTime = date.toUTCString();
   backgroundAlpha: 1,
   foreground: '#000000',
   foregroundAlpha: 1,
-  level: 'H',
-  size: 250,
+  level: 'L',
+  size: 230,
   value: varwebsite
 });
     document.write("</center>");
