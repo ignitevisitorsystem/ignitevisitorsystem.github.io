@@ -605,8 +605,7 @@ var utcTime = date.toUTCString();
       const log = document.getElementById('values');
 	
       var searchmembers = function(){
-	            document.write('<input placeholder="Enter Last Name" name="name" />');
-      document.write('<p id="values"></p>');      
+	
       }
       
       function updateValue(e) {
