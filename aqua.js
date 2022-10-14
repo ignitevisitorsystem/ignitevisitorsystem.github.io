@@ -606,9 +606,7 @@ var utcTime = date.toUTCString();
 	
       var searchmembers = function(){
 	            document.write('<input placeholder="Enter Last Name" name="name" />');
-      document.write('<p id="values"></p>');
-      input.addEventListener('input', updateValue);    
-	      
+      document.write('<p id="values"></p>');      
       }
       
       function updateValue(e) {
@@ -958,6 +956,7 @@ if (login.value != null &&  login.value != '' && fname.value != null &&  fname.v
             document.getElementById("schedule").addEventListener("click", schedule);
             document.getElementById("getall").addEventListener("click", getall);
 	    document.getElementById("checkin").addEventListener("click", gocheckin);
+      input.addEventListener('input', updateValue);    
    //iPadid
 	    
           var queryString = window.location.search;
