@@ -605,7 +605,7 @@ var utcTime = date.toUTCString();
       const log = document.getElementById('values');
 	
       var searchmembers = function(){
-	
+	document.getElementById('search').style.display = 'block';
       }
       
       function updateValue(e) {
