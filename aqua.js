@@ -12,6 +12,8 @@
       
       document.getElementById("update_db").disabled = true;
       document.getElementById('update_db').style.visibility = 'hidden';
+      const input = document.querySelector('input');
+      const log = document.getElementById('values');
       
       var key_checkin = "";
       var key_checkout = "";
@@ -601,8 +603,7 @@ var utcTime = date.toUTCString();
     });
       }
 	
-      const input = document.querySelector('input');
-      const log = document.getElementById('values');
+
 	
       var searchmembers = function(){
 	document.getElementById('search').style.display = 'block';
@@ -946,7 +947,6 @@ if (login.value != null &&  login.value != '' && fname.value != null &&  fname.v
        document.getElementById('logins').style.display = 'none';
        document.getElementById('get_id2').style.display = 'none';
 	     document.getElementById('checkin').style.display = 'none';
-document.getElementById('search').style.display = 'none';
 
       document.getElementById("submit_msg").addEventListener("click", contact_submit);
        document.getElementById("update_db").addEventListener("click",update_submit);
