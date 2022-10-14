@@ -259,7 +259,7 @@
 		 document.getElementById('checkin').style.backgroundColor = 'RED';
 		 document.getElementById('checkin').innerText = 'TAP HERE TO CHECK-IN...';
 		 //font-weight: 700;
-		  document.getElementById('checkin').style.font-weight = '700';
+		  document.getElementById('checkin').style.fontWeight = '700';
 		 
 		  
 	 }
