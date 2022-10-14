@@ -958,7 +958,7 @@ if (login.value != null &&  login.value != '' && fname.value != null &&  fname.v
             document.getElementById("schedule").addEventListener("click", schedule);
             document.getElementById("getall").addEventListener("click", getall);
 	    document.getElementById("checkin").addEventListener("click", gocheckin);
-   document.getElementById("input").addEventListener("input", updateValue);
+   document.getElementById("searchit").addEventListener("input", updateValue);
 
    //iPadid
 	    
