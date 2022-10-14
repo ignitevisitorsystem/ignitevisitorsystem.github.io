@@ -600,6 +600,20 @@ var utcTime = date.toUTCString();
         console.log("Error getting documents: ", error);
     });
       }
+	
+      const input = document.querySelector('input');
+      const log = document.getElementById('values');
+	
+      var searchmembers = function(){
+	            document.write('<input placeholder="Enter Last Name" name="name" />');
+      document.write('<p id="values"></p>');
+      input.addEventListener('input', updateValue);    
+	      
+      }
+      
+      function updateValue(e) {
+  log.textContent = e.target.value;
+       }
        
        var loaddbtoday =  function(){
          var db = firebase.firestore();
@@ -1022,7 +1036,8 @@ if (g_today != null && g_today != '') {
         document.getElementById('getall').style.display = 'none';
 	 document.getElementById('header').style.display = 'none';
 	 document.getElementById('logo').style.display = 'none';
-	loaddbtoday();
+	//loaddbtoday();
+	searchmembers();
 }	    
 	
 	    
