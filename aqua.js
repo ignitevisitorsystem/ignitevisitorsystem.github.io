@@ -257,7 +257,7 @@
 		 document.getElementById('update_db').style.backgroundColor = 'CORNFLOWERBLUE';
 		  document.getElementById('checkin').style.display = 'block';
 		 document.getElementById('checkin').style.backgroundColor = 'RED';
-		 document.getElementById('checkin').innerText = 'TAP HERE TO CHECK-IN...';
+		 document.getElementById('checkin').innerText = 'TAP HERE TO CHECK-IN/OUT...';
 		 //font-weight: 700;
 		  document.getElementById('checkin').style.fontWeight = '700';
 		 
@@ -349,7 +349,7 @@ var utcTime = date.toUTCString();
   foreground: '#000000',
   foregroundAlpha: 1,
   level: 'H',
-  size: 200,
+  size: 250,
   value: varwebsite
 });
     document.write("</center>");
