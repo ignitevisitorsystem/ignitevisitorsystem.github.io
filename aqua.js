@@ -612,6 +612,43 @@ var utcTime = date.toUTCString();
       function updateValue(e) {
   log.textContent = e.target.value;
 	      console.log(e.target.value);
+	      var db = firebase.firestore();
+let todays = new Date().toLocaleDateString();
+var header = "<head><style>table, td, th {  border: 1px solid #cbbbbb;  text-align: left;}table {  border-collapse: collapse;  width: 100%;}th, td {  padding: 15px;} tr:nth-child(even) {  background-color: #dddddd;}</style></head>";
+var title = "<center><h1>Ignite Church Visitor System</h1><b>Today's Date: " + todays + "</b></center>";      
+db.collection("members").where("remove", "==","No").where("lastname", ">=", e.target.value).where("lastname", "<=", e.target.value + "\uf8ff").orderBy("lastname","asc").orderBy("firstname","asc")
+    .get()
+    .then((querySnapshot) => {
+	 console.log("Snapshot:" + querySnapshot.size); 
+        var cnt = querySnapshot.size;
+	document.write(title);
+	document.write("<center><h2  style='color: blue;'>Find name and tap 'Select' button</b></h2></center><center>If name is not found below, click <a href='" +  "https://ignitemeeting.github.io/?ipad=Yes"   + "'>here</a> to continue!<br><br></center>");
+        if (cnt === 0){
+		 var nodata = "<br>No data found<br>";
+	  document.write(nodata);
+	}else{
+			  document.write("<table>  <tr><th>Last Name</th>    <th>First Name</th>    <th>Grade</th>     <th>Parent/Guardian</th></tr>");
+   
+	}
+         querySnapshot.forEach((doc) => {
+		var nodata = "";
+           var dates = new Date(doc.data().date).toLocaleString();
+          var links = "'https://ignitevisitorsystem.github.io/?iPadid=" + doc.data().key + "'";
+          var buttons =  '<button onclick="window.location.href=' + links + ';" style="background-color: yellow;font-weight: bold;border-color: black;font-size: medium;">Select</button>';
+	  console.log(buttons);
+          document.write('<tr><td>' + doc.data().lastname + '</td><td>' + doc.data().firstname + '</td><td>' + doc.data().grade + '</td><td>' + doc.data().guardianname + '</td><td>' + buttons + '</td></tr>');
+	});
+		   document.write("</table></center>");
+	           document.head.innerHTML = header;
+    }) 
+    .catch((error) => {
+         console.log("Error getting documents: ", error);
+          document.write(title);
+          document.write("<br>If name not found below, click <a href='" +  "https://ignitemeeting.github.io"   + "'>here</a> to continue<br>");
+	  var nodata = "<br>No data found<br>";
+	  document.write(nodata);
+          document.head.innerHTML = header;
+    });
        }
        
        var loaddbtoday =  function(){
