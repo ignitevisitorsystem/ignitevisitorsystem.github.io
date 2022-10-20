@@ -256,8 +256,8 @@
 		 document.getElementById('update_db').style.width = 'min-content';
 		 document.getElementById('update_db').style.backgroundColor = 'CORNFLOWERBLUE';
 		  document.getElementById('checkin').style.display = 'block';
-		 document.getElementById('checkin').style.backgroundColor = 'RED';
-		 document.getElementById('checkin').innerText = 'TAP HERE TO CHECK-IN/OUT...';
+		 //document.getElementById('checkin').style.backgroundColor = 'RED';
+		 document.getElementById('checkin').innerText = 'TAP HERE TO CHECK-IN...';
 		 //font-weight: 700;
 		  document.getElementById('checkin').style.fontWeight = '700';
 		 
