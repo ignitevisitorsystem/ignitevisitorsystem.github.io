@@ -223,7 +223,7 @@
 	  document.getElementById("grade").value = doc.data().grade;
             var removewebsiteYes = "https://ignitevisitorsystem.github.io/?id=" + doc.data().key + "&Remove=Yes";
            var removewebsiteNo = "https://ignitevisitorsystem.github.io/?id=" + doc.data().key + "&Remove=No";
-	var video = "https://youtu.be/6hxZn-wAfwY";
+	var video = "https://youtu.be/3zCagxlj9Nw";
 	document.getElementById("emaillink").innerHTML = "<a href='mailto:" + doc.data().email + "?subject=Upcoming Kids Church at Ignite Church" + '' + "&body=" + doc.data().firstname + " " + doc.data().lastname  + "%0D%0A%0D%0AA unique QR code can be used to Check-in at the iPad stand in our lobby.%0D%0A%0D%0APlease use the below link to get your QR code.%0D%0A" + document.getElementById("bitly").value + "'>Click here to create email to guest...</a>";
         console.log("Remove:" + doc.data().remove);
           if (doc.data().remove === 'Yes'){
